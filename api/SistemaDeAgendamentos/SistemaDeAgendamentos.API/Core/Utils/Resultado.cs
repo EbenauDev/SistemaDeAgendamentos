@@ -1,4 +1,4 @@
-﻿namespace SistemaDeAgendamentos.API.Core
+﻿namespace SistemaDeAgendamentos.API.Core.Utils
 {
     public struct Resultado<TSucesso, TFalha>
     {
@@ -22,10 +22,10 @@
         public bool EhFalha { get; private set; }
 
         public static Resultado<TSucesso, TFalha> NovoSucesso(TSucesso sucesso)
-            => new Core.Resultado<TSucesso, TFalha>(sucesso, ehSucesso: true, falha: default, ehFalha: false);
+            => new Resultado<TSucesso, TFalha>(sucesso, ehSucesso: true, falha: default, ehFalha: false);
 
         public static Resultado<TSucesso, TFalha> NovaFalha(TFalha falha)
-            => new Core.Resultado<TSucesso, TFalha>(default, ehSucesso: false, falha: falha, ehFalha: true);
+            => new Resultado<TSucesso, TFalha>(default, ehSucesso: false, falha: falha, ehFalha: true);
 
         public static implicit operator Resultado<TSucesso, TFalha>(TSucesso sucesso)
         {

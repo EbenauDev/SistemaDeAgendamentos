@@ -1,9 +1,9 @@
-﻿using SistemaDeAgendamentos.API.Core;
+﻿using SistemaDeAgendamentos.API.Core.Utils;
 
 namespace SistemaDeAgendamentos.API.Dominio.Pessoa
 {
     public interface IPessoaRepositorio
     {
-        Task<Resultado<Pessoa, Falha>> NovaPessoaAsync(Pessoa nova);
+        Task<Resultado<Dominio.Pessoa.Pessoa, Falha>> NovaPessoaAsync(Pessoa nova);
     }
 }

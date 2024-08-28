@@ -1,4 +1,6 @@
 
+using SistemaDeAgendamentos.API.Core.Config;
+
 namespace SistemaDeAgendamentos.API
 {
     public class Program
@@ -14,6 +16,8 @@ namespace SistemaDeAgendamentos.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDependencies();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -22,7 +26,6 @@ namespace SistemaDeAgendamentos.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
             app.UseAuthorization();
 
 
