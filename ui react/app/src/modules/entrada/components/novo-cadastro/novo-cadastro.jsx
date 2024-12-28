@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './index.less';
 import axios from "axios";
 
-function NovoCadastro() {
+
+function NovoCadastro({ onCancelarNovaConta }) {
     const [loadingForm, setLoadingForm] = useState(false);
     const [formNovoCadastro, setFormNovoCadastro] = useState({
         nome: '',
@@ -38,14 +39,14 @@ function NovoCadastro() {
         let errorMessage = "";
         if (identifier == 'nome') {
             if (!event.target.value)
-                errorMessage = "Nome deve ser informado";
+                errorMessage = "Campo obrigatório";
             if (event.target.value.length < 3)
                 errorMessage = "Nome deve ser maior que 2 caracteres";
         }
 
         if (identifier == 'email') {
             if (!event.target.value)
-                errorMessage = "E-mail é obrigatório";
+                errorMessage = "Campo obrigatório";
             if (!event.target.value.includes('@'))
                 errorMessage = "E-mail inválido";
             if (!event.target.value.includes('.com'))
@@ -98,14 +99,27 @@ function NovoCadastro() {
                 onChange={(event) => handleInputChange('celular', event)}
                 value={formNovoCadastro.celular} />
         </div>
-        <div className="mt-3">
-            <button className="btn btn-primary">Salvar</button>
+        <div className="mt-3" style={{
+            'display': 'flex',
+            'justify-content': 'end',
+            'margin-top': '10px',
+        }}>
+            <button type="button"
+                className="btn btn-danger"
+                onClick={onCancelarNovaConta}
+                style={{ 'margin-right': '10px' }}>
+                Cancelar
+            </button>
+            <button className="btn btn-primary">
+                Salvar
+                <span></span>
+            </button>
         </div>
     </form>;
 
     return (
         <div className="card-novo-cadastro">
-            <h1>Novo cadastro</h1>
+            <h3>Novo cadastro</h3>
             {loadingForm ? <>
                 <h1>Salvando cadastro</h1>
             </> : formulario}

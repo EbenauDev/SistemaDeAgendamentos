@@ -10,9 +10,9 @@ namespace SistemaDeAgendamentos.API.Controllers
     [ApiController]
     public class PessoaController : ControllerBase
     {
-        private readonly IPessoaRepositorio _pessoaRepositorio;
+        private readonly IPessoaRepository _pessoaRepositorio;
 
-        public PessoaController(IPessoaRepositorio pessoaRepositorio)
+        public PessoaController(IPessoaRepository pessoaRepositorio)
         {
             _pessoaRepositorio = pessoaRepositorio;
         }
@@ -20,7 +20,7 @@ namespace SistemaDeAgendamentos.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Nova(
             [FromServices] INovaPessoaComandHandler handler,
-            [FromBody] NovaPessoaComand comand)
+            [FromBody] NovaPessoaCommand comand)
         {
             if (await handler.ExecutarAsync(comand) is var resultado && resultado.EhFalha)
                 return BadRequest(resultado.Falha);

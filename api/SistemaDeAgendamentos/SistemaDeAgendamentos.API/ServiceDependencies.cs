@@ -8,8 +8,8 @@ namespace SistemaDeAgendamentos.API
     {
         public static IServiceCollection AddDependencies(this IServiceCollection services)
         {
-            services.AddScoped<IPessoaRepositorio, PessoaRepositorio>();
-            services.AddScoped<INovaPessoaComandHandler, NovaPessoaComandHandler>();
+            services.AddScoped<IPessoaRepository, PessoaRepository>();
+            services.AddScoped<INovaPessoaComandHandler, NovaPessoaCommandHandler>();
             return services;
         }
     }

@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router';
-import App from './App';
-import NovoCadastro from './modules/nao-autenticado/pages/novo-cadstro';
+import Entrada from './modules/entrada/pages/entrada';
+import VisaoGeral from './modules/socio/pages/visao-geral/visao-geral';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <Entrada />,
     },
     {
-        path:'/novo-cadastro',
-        element: <NovoCadastro/>,
+        path:'/visao-geral',
+        element: <VisaoGeral/>
     }
 ]);
 

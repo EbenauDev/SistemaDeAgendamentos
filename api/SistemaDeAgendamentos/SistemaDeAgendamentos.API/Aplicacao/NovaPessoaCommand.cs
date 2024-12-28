@@ -1,6 +1,6 @@
 ﻿namespace SistemaDeAgendamentos.API.Aplicacao
 {
-    public class NovaPessoaComand
+    public class NovaPessoaCommand
     {
         public string Nome { get; set; }
         public string Email { get; set; }

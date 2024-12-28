@@ -5,11 +5,11 @@ using SistemaDeAgendamentos.API.Dominio.Pessoa;
 
 namespace SistemaDeAgendamentos.API.Infra.Pessoa
 {
-    public class PessoaRepositorio : IPessoaRepositorio
+    public class PessoaRepository : IPessoaRepository
     {
         private readonly string _stringDeConexao;
 
-        public PessoaRepositorio(IConfiguration configuration)
+        public PessoaRepository(IConfiguration configuration)
         {
             _stringDeConexao = configuration.GetConnectionString("DefaultConnection");
         }

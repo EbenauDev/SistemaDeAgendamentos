@@ -6,19 +6,19 @@ namespace SistemaDeAgendamentos.API.Dominio.ServicosDeDominio
 {
     public interface INovaPessoaComandHandler
     {
-        Task<Resultado<Pessoa.Pessoa, Falha>> ExecutarAsync(NovaPessoaComand novaPessoaComand);
+        Task<Resultado<Pessoa.Pessoa, Falha>> ExecutarAsync(NovaPessoaCommand novaPessoaComand);
     }
 
-    public class NovaPessoaComandHandler : INovaPessoaComandHandler
+    public class NovaPessoaCommandHandler : INovaPessoaComandHandler
     {
-        private readonly IPessoaRepositorio _pessoaRepositorio;
+        private readonly IPessoaRepository _pessoaRepositorio;
 
-        public NovaPessoaComandHandler(IPessoaRepositorio pessoaRepositorio)
+        public NovaPessoaCommandHandler(IPessoaRepository pessoaRepositorio)
         {
             _pessoaRepositorio = pessoaRepositorio;
         }
 
-        public async Task<Resultado<Pessoa.Pessoa, Falha>> ExecutarAsync(NovaPessoaComand novaPessoaComand)
+        public async Task<Resultado<Pessoa.Pessoa, Falha>> ExecutarAsync(NovaPessoaCommand novaPessoaComand)
         {
             var pessoa = Pessoa.Pessoa.NovaPessoa(
                 novaPessoaComand.Nome,

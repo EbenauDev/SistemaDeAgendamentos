@@ -2,7 +2,7 @@
 
 namespace SistemaDeAgendamentos.API.Dominio.Pessoa
 {
-    public interface IPessoaRepositorio
+    public interface IPessoaRepository
     {
         Task<Resultado<Dominio.Pessoa.Pessoa, Falha>> NovaPessoaAsync(Pessoa nova);
     }

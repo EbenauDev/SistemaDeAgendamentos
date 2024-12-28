@@ -1,19 +1,11 @@
-import { useNavigate } from "react-router";
-
-
+import { RouterProvider } from "react-router";
+import router from './routes';
 
 function App() {
-  const navigate = useNavigate();
 
-  function novoCadastro(){
-    navigate('/novo-cadastro');
-  }
 
   return (
-    <div>
-       <h1>Olá mundo</h1>
-       <button onClick={novoCadastro}>Criar conta</button>
-    </div>
+    <RouterProvider router={router} />
   )
 }
 
